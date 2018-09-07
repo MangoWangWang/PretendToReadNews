@@ -70,6 +70,8 @@ public class SmallFilmListFragment extends BaseContentFragment {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getActivity(),SmallFilmVideoActivity.class);
+                intent.putExtra("url",((SmallFilmItemBean)adapter.getData().get(position)).getUrl());
+                intent.putExtra("title",((SmallFilmItemBean)adapter.getData().get(position)).getTitle());
                 startActivity(intent);
             }
         });

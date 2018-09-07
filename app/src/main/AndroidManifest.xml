@@ -40,15 +40,16 @@
             android:value="667"/>
 
         <activity android:name=".ui.main.MainActivity">
-        </activity>
-        <activity android:name=".ui.easyRead.EasyReadActivity"/>
-        <activity android:name=".ui.bus.SmallFilmActivity"/>
-        <activity android:name=".ui.bus.BusActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.easyRead.EasyReadActivity"/>
+        <activity android:name=".ui.bus.SmallFilmActivity"/>
+        <activity android:name=".ui.bus.BusActivity">
+
         </activity>
         <activity android:name=".ui.bus.SmallFilmCategoryActivity"/>
         <activity
