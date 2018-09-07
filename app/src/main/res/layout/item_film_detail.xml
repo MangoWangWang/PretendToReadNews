@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_film"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+        <TextView
+            android:id="@+id/tv_film_score"
+            android:textColor="@color/colorWhite"
+            android:background="@color/lapis_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9.0"
+            />
+
+
+    </FrameLayout>
+
+
+   <TextView
+       android:textColor="@color/black"
+       android:layout_marginLeft="15dp"
+       android:layout_marginRight="15dp"
+       android:textSize="16sp"
+       android:id="@+id/tv_film_title"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:maxLines="2"
+       android:ellipsize="end"
+       />
+    <TextView
+        android:layout_marginBottom="5dp"
+        android:textSize="13sp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textColor="@color/Color_Red"
+        android:id="@+id/tv_film_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        />
+</LinearLayout>

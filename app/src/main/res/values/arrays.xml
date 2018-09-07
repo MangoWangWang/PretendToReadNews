@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--侧滑菜单-->
+    <string-array name="main_navs">
+        <item>天气</item>
+        <item>公交</item>
+        <item>闲读</item>
+        <item>福利</item>
+        <item>设置</item>
+        <item>关于</item>
+    </string-array>
+
+
+    <!--侧滑菜单图标-->
+    <string-array name="main_tab_icons">
+        <item>@drawable/ic_weather</item>
+        <item>@drawable/ic_bus</item>
+        <item>@drawable/ic_reading</item>
+        <item>@drawable/ic_gank</item>
+    </string-array>
+
+
+
+    <!--侧滑菜单图标-->
+    <string-array name="small_one_category">
+        <item>自拍偷拍</item><item>夫妻同房</item><item>开放90后</item><item>换妻游戏</item><item>网红主播</item><item>经典三级</item><item>手机小视频</item>
+        <item>无码中字</item><item>熟女人妻</item><item>美颜巨乳</item><item>颜射吃精</item><item>丝袜制服</item><item>高清无码</item>
+        <item>中文有码</item>
+        <item>宇都宮紫苑</item><item>天海翼</item><item>水菜麗</item><item>泷泽萝拉</item><item>S级女优</item><item>波多野结衣</item><item>吉泽明步</item><item>苍井空</item>
+        <item>成人动漫</item>
+        <item>欧美性爱</item>
+    </string-array>
+
+    <string-array name="small_one_url">
+        <item>17</item><item>18</item><item>19</item><item>20</item><item>21</item><item>22</item><item>23</item>
+        <item>65</item><item>25</item><item>26</item><item>27</item><item>28</item><item>29</item>
+        <item>70</item>
+        <item>61</item><item>62</item><item>63</item><item>64</item><item>66</item><item>31</item><item>32</item><item>33</item>
+        <item>67</item>
+        <item>68</item>
+    </string-array>
+
+
+</resources>
