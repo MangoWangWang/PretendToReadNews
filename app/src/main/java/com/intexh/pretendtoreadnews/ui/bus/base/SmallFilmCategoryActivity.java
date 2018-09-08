@@ -1,7 +1,6 @@
-package com.intexh.pretendtoreadnews.ui.bus;
+package com.intexh.pretendtoreadnews.ui.bus.base;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,20 +9,19 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.intexh.pretendtoreadnews.R;
 import com.intexh.pretendtoreadnews.adapter.SmallFilmCategoryAdapter;
-import com.intexh.pretendtoreadnews.base.app.AppConstants;
 import com.intexh.pretendtoreadnews.base.ui.BaseActivity;
 import com.intexh.pretendtoreadnews.model.bus.SmallFilmCategory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SmallFilmCategoryActivity extends BaseActivity {
-    private List<SmallFilmCategory> filmCategories = new ArrayList<>();
+public abstract class SmallFilmCategoryActivity extends BaseActivity {
+    public List<SmallFilmCategory> filmCategories = new ArrayList<>();
 
-    private RecyclerView category_rv;
-    private SmallFilmCategoryAdapter mAdapter;
-    private String mHost;
-
+    public RecyclerView category_rv;
+    public SmallFilmCategoryAdapter mAdapter;
+    public String mHost;
+    public Class mStartActivity;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_bus_category;
@@ -36,7 +34,7 @@ public class SmallFilmCategoryActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        getSupportActionBar().setTitle("观影区一");
+        getSupportActionBar().setTitle(getIntent().getStringExtra("title"));
         category_rv = findView(R.id.category_rv);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 3);
         category_rv.setLayoutManager(layoutManager);
@@ -46,23 +44,8 @@ public class SmallFilmCategoryActivity extends BaseActivity {
 
     @Override
     protected void loadData() {
-        // 加载本地数据
-        Resources res = getResources();
-        mHost = AppConstants.videoOneHost+"/html/";
-        String[] film_category = res.getStringArray(R.array.small_one_category);
-        String[] film_category_url = res.getStringArray(R.array.small_one_url);
-        // 遍历分类内容
-        for (int i = 0 ;i<film_category.length;i++)
-        {
-            SmallFilmCategory temp = new SmallFilmCategory();
-            temp.setName(film_category[i]);
-            temp.setUrl(mHost + film_category_url[i]);
-            filmCategories.add(temp);
-        }
-        if (filmCategories == null||filmCategories.size()==0)
-        {
-            finish();
-        }
+
+        loadLocationCategory();
         // 设置视频器
         mAdapter = new SmallFilmCategoryAdapter(filmCategories);
         category_rv.setAdapter(mAdapter);
@@ -71,7 +54,7 @@ public class SmallFilmCategoryActivity extends BaseActivity {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 //                Toast.makeText(SmallFilmCategoryActivity.this,filmCategories.get(position).getUrl(),Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(SmallFilmCategoryActivity.this,SmallFilmListActivity.class);
+                Intent intent = new Intent(SmallFilmCategoryActivity.this,mStartActivity);
                 intent.putExtra("url",filmCategories.get(position).getUrl());
                 intent.putExtra("title",filmCategories.get(position).getName());
                 startActivity(intent);
@@ -79,4 +62,7 @@ public class SmallFilmCategoryActivity extends BaseActivity {
         });
 
     }
+
+    protected abstract void loadLocationCategory();
+
 }

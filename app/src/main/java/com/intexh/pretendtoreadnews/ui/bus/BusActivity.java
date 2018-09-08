@@ -7,6 +7,8 @@ import android.widget.ImageButton;
 
 import com.intexh.pretendtoreadnews.R;
 import com.intexh.pretendtoreadnews.base.ui.BaseActivity;
+import com.intexh.pretendtoreadnews.ui.bus.one.SmallFilmOneCategoryActivity;
+import com.intexh.pretendtoreadnews.ui.bus.two.SmallFilmTwoCategoryActivity;
 
 public class BusActivity extends BaseActivity {
 
@@ -33,10 +35,20 @@ public class BusActivity extends BaseActivity {
         ib_one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BusActivity.this,SmallFilmCategoryActivity.class);
+                Intent intent = new Intent(BusActivity.this,SmallFilmOneCategoryActivity.class);
+                intent.putExtra("title","观影区一");
                 startActivity(intent);
             }
         });
+        ib_two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BusActivity.this,SmallFilmTwoCategoryActivity.class);
+                intent.putExtra("title","观影区二");
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

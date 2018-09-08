@@ -1,4 +1,4 @@
-package com.intexh.pretendtoreadnews.ui.bus;
+package com.intexh.pretendtoreadnews.ui.bus.base;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -47,19 +47,29 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.easyRead.EasyReadActivity"/>
-        <activity android:name=".ui.bus.SmallFilmActivity"/>
+        <!-- <activity android:name=".ui.bus.SmallFilmActivity"/> -->
         <activity android:name=".ui.bus.BusActivity">
-
         </activity>
-        <activity android:name=".ui.bus.SmallFilmCategoryActivity"/>
+        <!-- <activity android:name=".ui.bus.base.SmallFilmCategoryActivity"/> -->
         <activity
             android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/WebViewTheme"/>
-        <activity android:name=".ui.bus.SmallFilmListActivity"/>
-        <activity android:name=".ui.bus.SmallFilmVideoActivity">
+        <!-- <activity android:name=".ui.bus.base.SmallFilmListActivity"/> -->
+        <activity
+            android:name=".ui.bus.SmallFilmVideoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            >
         </activity>
+        <activity android:name=".ui.bus.one.SmallFilmOneCategoryActivity">
+        </activity>
+        <activity android:name=".ui.bus.one.SmallFilmListOneActivity">
+        </activity>
+        <activity android:name=".ui.bus.two.SmallFilmTwoCategoryActivity">
+        </activity>
+        <activity android:name=".ui.bus.two.SmallFilmListTwoActivity"/>
     </application>
 
 </manifest>

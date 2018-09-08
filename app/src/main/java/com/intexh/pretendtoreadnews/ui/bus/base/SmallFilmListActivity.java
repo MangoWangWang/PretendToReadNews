@@ -1,17 +1,14 @@
-package com.intexh.pretendtoreadnews.ui.bus;
+package com.intexh.pretendtoreadnews.ui.bus.base;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.FrameLayout;
 
 import com.intexh.pretendtoreadnews.R;
 import com.intexh.pretendtoreadnews.base.ui.BaseActivity;
-import com.intexh.pretendtoreadnews.ui.easyRead.CategoryFragment;
 
-public class SmallFilmListActivity extends BaseActivity {
+public abstract class SmallFilmListActivity extends BaseActivity {
 
     private String url;
     @Override
@@ -37,7 +34,7 @@ public class SmallFilmListActivity extends BaseActivity {
     @Override
     protected void loadData() {
         // 把fragment比喻成为数据存储到fragment
-        Fragment fragment = new SmallFilmListFragment();
+        Fragment fragment = AddFragment();
         Bundle data = new Bundle();
         data.putString("url", url);
         fragment.setArguments(data);
@@ -48,4 +45,5 @@ public class SmallFilmListActivity extends BaseActivity {
     }
 
 
+    protected abstract Fragment AddFragment();
 }
