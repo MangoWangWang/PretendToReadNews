@@ -21,7 +21,7 @@
 
 
 
-    <!--侧滑菜单图标-->
+    <!--观影区一分类-->
     <string-array name="small_one_category">
         <item>自拍偷拍</item><item>夫妻同房</item><item>开放90后</item><item>换妻游戏</item><item>网红主播</item><item>经典三级</item><item>手机小视频</item>
         <item>无码中字</item><item>熟女人妻</item><item>美颜巨乳</item><item>颜射吃精</item><item>丝袜制服</item><item>高清无码</item>
@@ -39,6 +39,33 @@
         <item>67</item>
         <item>68</item>
     </string-array>
+
+
+
+
+
+    <!--观影区一分类-->
+    <string-array name="small_two_category">
+        <item>自拍视频</item>
+        <item>其他视频</item>
+        <item>欧美视频</item>
+        <item>动漫视频</item>
+        <item>无码视频</item>
+        <item>有码视频</item>
+        <item>亚洲视频</item>
+
+    </string-array>
+
+    <string-array name="small_two_url">
+        <item>/zipaishipin/</item>
+        <item>/qitashipin/></item>
+        <item>/oumeishipin/</item>
+        <item>/dongmanshipin/</item>
+        <item>/wumashipin/</item>
+        <item>/youmashipin/</item>
+        <item>/yazhoushipin/</item>
+    </string-array>
+
 
 
 </resources>

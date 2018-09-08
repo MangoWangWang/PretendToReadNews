@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.intexh.pretendtoreadnews.R;
 import com.intexh.pretendtoreadnews.base.app.AppConstants;
@@ -35,6 +36,7 @@ import static com.intexh.pretendtoreadnews.base.app.AppConstants.videoService_tw
 public class SmallFilmVideoActivity extends BaseActivity {
     private LoadingPage mLoadingPage;
     private JzvdStd jzvdStd;
+    private TextView tv_playUrl;
     private Subscription subscription;
     private SmallFilmVideoBean mItem;
 
@@ -62,8 +64,10 @@ public class SmallFilmVideoActivity extends BaseActivity {
                 protected void initView() {
                     // loadingPage中调用,实例化真正的控件
                     jzvdStd = contentView.findViewById(R.id.videoplayer);
+                    tv_playUrl = contentView.findViewById(R.id.playURL);
                     jzvdStd.setUp(mItem.getPlayUrl(),
                             mItem.getTitle() , Jzvd.SCREEN_WINDOW_NORMAL );
+                    tv_playUrl.setText(mItem.getPlayUrl());
 //                    jzvdStd.thumbImageView.setImage("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640");
                 }
 
@@ -108,54 +112,53 @@ public class SmallFilmVideoActivity extends BaseActivity {
                     Document doc = Jsoup.connect(url).timeout(10000).get();
                     Log.e("songwang", doc.toString() );
                     Elements cates = doc.select("script");
-//                    int i = 0;
-//                    for (Element element :cates)
-//                    {
-//                        Log.e("songwang", i+"  "+ element.toString() );
-//                        i++;
-//
-//                    }
-                    if (cates.size()>10)
+                    Element tauger ;
+                    if(cates.size()>0)
                     {
-                        Element element = cates.get(10);
-                        String tempUrl = element.data().trim();
-//                        tempUrl.substring(tempUrl.indexOf("= \""));
-                        Log.e("songwang1",tempUrl);
-                        if(TextUtils.isEmpty(tempUrl))
+                        for (Element element:cates)
                         {
-                            tempUrl = cates.get(9).data().trim();
-                        }
-                        // 去掉空格
-                        tempUrl = tempUrl.replaceAll(" ", "");
-                        // 去掉双引号
-                        tempUrl = tempUrl.replaceAll("\"", "");
-                        // 去掉";
-                        tempUrl = tempUrl.replaceAll(";", "");
-                        // 根据等号切割字符串
-                        String[] ss = tempUrl.split("=");
-                        if (ss.length>2)
-                        {
-                            String replace= "";
-                            if(ss[2].contains("CN1"))
+                            if (!TextUtils.isEmpty(element.data()))
                             {
-                                replace = ss[2].replace("+CN1+", videoService_one);
-                            }else if (ss[2].contains("CN2"))
-                            {
-                                replace = ss[2].replace("+CN2+", videoService_two);
+                               if (element.data().contains("CN"))
+                               {
+                                   String tempUrl = element.data().trim();
+                                   // 去掉空格
+                                   tempUrl = tempUrl.replaceAll(" ", "");
+                                   // 去掉双引号
+                                   tempUrl = tempUrl.replaceAll("\"", "");
+                                   // 去掉";
+                                   tempUrl = tempUrl.replaceAll(";", "");
+                                   // 去掉换行符
+//                                   tempUrl = tempUrl.replaceAll("/n","");
+                                   // 根据等号切割字符串
+                                   String[] ss = tempUrl.split("=");
+                                   if (ss.length>2)
+                                   {
+                                       String replace= "";
+                                       if(ss[2].contains("CN1"))
+                                       {
+                                           replace = ss[2].replace("+CN1+", videoService_one);
+                                       }else if (ss[2].contains("CN2"))
+                                       {
+                                           replace = ss[2].replace("+CN2+", videoService_two);
 
-                            }else if (ss[2].contains("CN3"))
-                            {
-                                replace = ss[2].replace("+CN3+", videoService_three);
+                                       }else if (ss[2].contains("CN3"))
+                                       {
+                                           replace = ss[2].replace("+CN3+", videoService_three);
+                                       }
+
+                                       item.setTitle(getIntent().getStringExtra("title"));
+                                       item.setPlayUrl(replace);
+                                       Log.e("songwang1",replace);
+                                       break;
+                                   }else
+                                   {
+                                       Log.e("songwang1","解析出错");
+                                       break;
+                                   }
+                               }
                             }
-
-                            item.setTitle(getIntent().getStringExtra("title"));
-                            item.setPlayUrl(replace);
-                            Log.e("songwang1",replace);
-                        }else
-                        {
-                            Log.e("songwang1","解析出错");
                         }
-
                     }
 
                 } catch (IOException e) {
