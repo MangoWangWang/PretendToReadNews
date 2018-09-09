@@ -18,8 +18,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!-- 访问网络，网络定位需要上网 -->
     <uses-permission android:name="android.permission.INTERNET"/>
-    <!-- SD卡读取权限，用户写入离线定位数据 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!-- 壁纸设置权限，用户设置妹子壁纸 -->
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
@@ -58,18 +56,21 @@
             android:theme="@style/WebViewTheme"/>
         <!-- <activity android:name=".ui.bus.base.SmallFilmListActivity"/> -->
         <activity
-            android:name=".ui.bus.SmallFilmVideoActivity"
+            android:name=".ui.bus.base.SmallFilmVideoActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            >
+            android:screenOrientation="portrait">
         </activity>
         <activity android:name=".ui.bus.one.SmallFilmOneCategoryActivity">
         </activity>
-        <activity android:name=".ui.bus.one.SmallFilmListOneActivity">
+        <activity android:name=".ui.bus.one.SmallFilmOneListActivity">
         </activity>
         <activity android:name=".ui.bus.two.SmallFilmTwoCategoryActivity">
         </activity>
-        <activity android:name=".ui.bus.two.SmallFilmListTwoActivity"/>
+        <activity android:name=".ui.bus.two.SmallFilmTwoListActivity"/>
+        <activity android:name=".ui.bus.one.SmallFilmOneVideoActivity">
+        </activity>
+        <activity android:name=".ui.bus.two.SmallFilmTwoVideoActivity">
+        </activity>
     </application>
 
 </manifest>

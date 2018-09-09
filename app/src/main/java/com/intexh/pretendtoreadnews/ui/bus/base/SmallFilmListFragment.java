@@ -10,7 +10,6 @@ import com.intexh.pretendtoreadnews.R;
 import com.intexh.pretendtoreadnews.adapter.SmallFilmListAdapter;
 import com.intexh.pretendtoreadnews.base.ui.BaseContentFragment;
 import com.intexh.pretendtoreadnews.model.bus.SmallFilmItemBean;
-import com.intexh.pretendtoreadnews.ui.bus.SmallFilmVideoActivity;
 
 import rx.Subscription;
 
@@ -25,6 +24,7 @@ public abstract class SmallFilmListFragment extends BaseContentFragment {
     public int currentPage = 1;
     public String baseUrl = "";
     public boolean isLoading = false;
+    public Class mVideoClass;
 
     public Subscription subscription;
 
@@ -55,7 +55,7 @@ public abstract class SmallFilmListFragment extends BaseContentFragment {
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent = new Intent(getActivity(),SmallFilmVideoActivity.class);
+                Intent intent = new Intent(getActivity(),mVideoClass);
                 intent.putExtra("url",((SmallFilmItemBean)adapter.getData().get(position)).getUrl());
                 intent.putExtra("title",((SmallFilmItemBean)adapter.getData().get(position)).getTitle());
                 startActivity(intent);

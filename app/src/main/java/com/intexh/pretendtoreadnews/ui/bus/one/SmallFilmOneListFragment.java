@@ -76,6 +76,8 @@ public class SmallFilmOneListFragment extends SmallFilmListFragment {
                 } else {
                     adapter.addData(adapter.getData().size(), Items);
                 }
+                // 设置启动的class类型
+                mVideoClass = SmallFilmOneVideoActivity.class;
             }
         });
     }

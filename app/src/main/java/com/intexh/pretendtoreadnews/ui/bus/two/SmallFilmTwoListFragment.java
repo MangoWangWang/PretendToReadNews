@@ -81,6 +81,7 @@ public class SmallFilmTwoListFragment extends SmallFilmListFragment {
                 } else {
                     adapter.addData(adapter.getData().size(), Items);
                 }
+                mVideoClass = SmallFilmTwoVideoActivity.class;
             }
         });
     }

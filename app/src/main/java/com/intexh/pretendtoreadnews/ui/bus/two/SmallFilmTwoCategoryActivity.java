@@ -12,7 +12,7 @@ public class SmallFilmTwoCategoryActivity extends SmallFilmCategoryActivity {
 
     @Override
     protected void loadLocationCategory() {
-        mStartActivity = SmallFilmListTwoActivity.class;
+        mStartActivity = SmallFilmTwoListActivity.class;
         // 加载本地数据
         Resources res = getResources();
         mHost = AppConstants.videoTwoHost;

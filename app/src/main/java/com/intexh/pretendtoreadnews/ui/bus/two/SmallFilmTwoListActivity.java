@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 
 import com.intexh.pretendtoreadnews.ui.bus.base.SmallFilmListActivity;
 
-public class SmallFilmListTwoActivity extends SmallFilmListActivity {
+public class SmallFilmTwoListActivity extends SmallFilmListActivity {
 
 
     @Override
