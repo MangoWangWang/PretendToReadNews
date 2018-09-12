@@ -55,11 +55,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/WebViewTheme"/>
         <!-- <activity android:name=".ui.bus.base.SmallFilmListActivity"/> -->
-        <activity
-            android:name=".ui.bus.base.SmallFilmVideoActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait">
-        </activity>
         <activity android:name=".ui.bus.one.SmallFilmOneCategoryActivity">
         </activity>
         <activity android:name=".ui.bus.one.SmallFilmOneListActivity">
@@ -67,9 +62,13 @@
         <activity android:name=".ui.bus.two.SmallFilmTwoCategoryActivity">
         </activity>
         <activity android:name=".ui.bus.two.SmallFilmTwoListActivity"/>
-        <activity android:name=".ui.bus.one.SmallFilmOneVideoActivity">
+        <activity android:name=".ui.bus.one.SmallFilmOneVideoActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+            >
         </activity>
-        <activity android:name=".ui.bus.two.SmallFilmTwoVideoActivity">
+        <activity android:name=".ui.bus.two.SmallFilmTwoVideoActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+            >
         </activity>
     </application>
 
